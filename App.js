@@ -362,7 +362,7 @@ const BluetoothSerialExample = () => {
     if (state.connected) {
       BluetoothSerial.readFromDevice()
         .then(data => {
-          data && Toast.success(data);
+          data && Toast.success(`Received from Kit - ${data}`);
           data && console.log('Initial data read:', data);
         })
         .catch(error => {
@@ -406,11 +406,11 @@ const BluetoothSerialExample = () => {
   return (
     <View style={{flex: 1}}>
       <View style={styles.topBar}>
-        <Text style={styles.heading}>Bluetooth Serial Example</Text>
+        <Text style={styles.heading}>Bluetooth Classic Integration</Text>
         {Platform.OS === 'android' ? (
           <View style={styles.enableInfoWrapper}>
             <Text style={{fontSize: 12, color: '#FFFFFF'}}>
-              {state.isEnabled ? 'disable' : 'enable'}
+              {state.isEnabled ? 'Disable' : 'Enable'}
             </Text>
             <Switch onValueChange={toggleBluetooth} value={state.isEnabled} />
           </View>
